@@ -1,112 +1,83 @@
 <!DOCTYPE html>
 <html lang="lv">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cenu Kalkulators - Mājaslapas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="container">
+    <h1>Mājaslapas Cenu Kalkulators</h1>
 
-  <h1>Mājaslapas Cenu Kalkulators</h1>
+    <div class="calculator-form">
+      <!-- Lapu skaits -->
+      <div class="section">
+        <h2>Lapu skaits</h2>
+        <div class="section-selector">
+          <label><input type="radio" name="pages" value="1" checked> 1 lapa</label>
+          <label><input type="radio" name="pages" value="3"> 3 lapas</label>
+          <label><input type="radio" name="pages" value="5"> 5 lapas</label>
+          <label for="customRadio">
+            <input type="radio" name="pages" value="custom" id="customRadio"> Cits skaits:
+          </label>
+          <label for="customPages" class="visually-hidden">Lapu skaits</label>
+          <input type="number" id="customPages" min="1" max="20" value="1" disabled>
+        </div>
+      </div>
 
-  <section class="section" aria-labelledby="lapu-skaits">
-    <h2 id="lapu-skaits">1. Lapu skaits</h2>
-    <label><input type="radio" name="pages" value="1" checked> 1 lapa</label>
-    <label><input type="radio" name="pages" value="3"> 3 lapas</label>
-    <label><input type="radio" name="pages" value="5"> 5 lapas</label>
-    <label>
-      <input type="radio" name="pages" value="custom"> Cits skaits:
-      <input type="number" id="customPages" min="1" max="20" value="1" disabled>
-    </label>
-  </section>
+      <!-- Funkcionalitātes -->
+      <div class="section">
+        <h2>Papildu funkcijas</h2>
+        <div class="functionality">
+          <label><input type="checkbox" value="responsive" data-price="200"> Adaptīvs dizains <span class="price">+200€</span></label>
+          <label><input type="checkbox" value="cms" data-price="500"> Wordpress (CMS) <span class="price">+500€</span></label>
+          <label><input type="checkbox" value="ecommerce" data-price="800"> E-komercija <span class="price">+800€</span></label>
+          <label><input type="checkbox" value="blog" data-price="300"> Blogposts <span class="price">+300€</span></label>
+          <label><input type="checkbox" value="multilingual" data-price="400"> Valodu atbalsts <span class="price">+400€</span></label>
+          <label><input type="checkbox" value="seo" data-price="250"> SEO optimizācija <span class="price">+250€</span></label>
+          <label><input type="checkbox" value="analytics" data-price="150"> Google Analytics <span class="price">+150€</span></label>
+          <label><input type="checkbox" value="contact" data-price="100"> Pievienot kontaktinformāciju <span class="price">+100€</span></label>
+        </div>
+      </div>
 
-  <section class="section" aria-labelledby="papildfunkcijas">
-    <h2 id="papildfunkcijas">2. Papildu funkcijas</h2>
-    <label><input type="checkbox" data-price="200"> Adaptīvs dizains <span class="price">+200€</span></label>
-    <label><input type="checkbox" data-price="500"> Wordpress (CMS) <span class="price">+500€</span></label>
-    <label><input type="checkbox" data-price="800"> E-komercija <span class="price">+800€</span></label>
-    <label><input type="checkbox" data-price="300"> Blogposts <span class="price">+300€</span></label>
-    <label><input type="checkbox" data-price="400"> Valodu atbalsts <span class="price">+400€</span></label>
-    <label><input type="checkbox" data-price="250"> SEO optimizācija <span class="price">+250€</span></label>
-    <label><input type="checkbox" data-price="150"> Google Analytics <span class="price">+150€</span></label>
-    <label><input type="checkbox" data-price="100"> Pievienot kontaktinformāciju <span class="price">+100€</span></label>
-  </section>
+      <!-- Cena -->
+      <div class="section">
+        <h2>Summa</h2>
+        <div class="price-breakdown">
+          <div class="price-line">
+            <span>Pamata cena (<span id="pageCount">1</span> lapa/as):</span>
+            <span id="basePrice">500€</span>
+          </div>
+          <div class="price-line">
+            <span>Papildu funkcionalitātes:</span>
+            <span id="functionalityPrice">0€</span>
+          </div>
+          <div class="price-line subtotal">
+            <span>Cena bez PVN:</span>
+            <span id="subtotal">500€</span>
+          </div>
+          <div class="price-line">
+            <span>PVN (21%):</span>
+            <span id="vat">105€</span>
+          </div>
+          <div class="price-line total">
+            <span>Kopējā cena:</span>
+            <span id="total">605€</span>
+          </div>
+        </div>
 
-  <section class="section" aria-labelledby="summa">
-    <h2 id="summa">3. Summa</h2>
-    <div class="price-line"><span>Pamata cena (<span id="pageCount">1</span> lapa/as):</span><span id="basePrice">500€</span></div>
-    <div class="price-line"><span>Papildu funkcionalitātes:</span><span id="functionalityPrice">0€</span></div>
-    <div class="price-line"><span>Cena bez PVN:</span><span id="subtotal">500€</span></div>
-    <div class="price-line"><span>PVN (21%):</span><span id="vat">105€</span></div>
-    <div class="price-line total"><span>Kopējā cena:</span><span id="total">605€</span></div>
-    <button class="payment-button">💳 Maksāt - <span id="paymentTotal">605€</span></button>
-    <p class="payment-note">Drošs maksājums ar bankas karti vai PayPal</p>
-  </section>
+        <div class="payment-section">
+          <button id="paymentBtn" class="payment-button">💳 Maksāt - <span id="paymentTotal">605€</span></button>
+          <p class="payment-note">Drošs maksājums ar bankas karti vai PayPal</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const BASE_PRICE_PER_PAGE = 500;
-      const VAT_RATE = 0.21;
-
-      const pageRadios = document.querySelectorAll('input[name="pages"]');
-      const customPagesInput = document.getElementById('customPages');
-      const checkboxes = document.querySelectorAll('input[type="checkbox"][data-price]');
-
-      const pageCountEl = document.getElementById('pageCount');
-      const basePriceEl = document.getElementById('basePrice');
-      const functionalityPriceEl = document.getElementById('functionalityPrice');
-      const subtotalEl = document.getElementById('subtotal');
-      const vatEl = document.getElementById('vat');
-      const totalEl = document.getElementById('total');
-      const paymentTotalEl = document.getElementById('paymentTotal');
-
-      function getSelectedPageCount() {
-        const selected = [...pageRadios].find(r => r.checked);
-        if (selected && selected.value === 'custom') {
-          const value = parseInt(customPagesInput.value);
-          return isNaN(value) ? 1 : value;
-        }
-        return parseInt(selected.value);
-      }
-
-      function getFunctionalityTotal() {
-        let total = 0;
-        checkboxes.forEach(cb => {
-          if (cb.checked) total += parseInt(cb.dataset.price);
-        });
-        return total;
-      }
-
-      function updatePrices() {
-        const pageCount = getSelectedPageCount();
-        const basePrice = pageCount * BASE_PRICE_PER_PAGE;
-        const funcPrice = getFunctionalityTotal();
-        const subtotal = basePrice + funcPrice;
-        const vat = Math.round(subtotal * VAT_RATE);
-        const total = subtotal + vat;
-
-        pageCountEl.textContent = pageCount;
-        basePriceEl.textContent = basePrice + '€';
-        functionalityPriceEl.textContent = funcPrice + '€';
-        subtotalEl.textContent = subtotal + '€';
-        vatEl.textContent = vat + '€';
-        totalEl.textContent = total + '€';
-        paymentTotalEl.textContent = total + '€';
-      }
-
-      pageRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-          customPagesInput.disabled = radio.value !== 'custom';
-          updatePrices();
-        });
-      });
-
-      customPagesInput.addEventListener('input', updatePrices);
-      checkboxes.forEach(cb => cb.addEventListener('change', updatePrices));
-
-      updatePrices();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
